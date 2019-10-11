@@ -1,0 +1,13 @@
+#intro{background:#ccc; padding-top:200px}
+
+.btn_1{margin:20px;width:40%; height: 250px;}
+.btn_2{margin:20px;width:40%; height: 250px; line-height: 250px; font-size: x-large }
+.btn_3{
+    margin-top: 100px;
+border-radius: 380px 380px 0 0;
+height: 90px;
+width: 180px;
+padding-top: 35px;
+border: none;
+text-transform: uppercase;
+    }

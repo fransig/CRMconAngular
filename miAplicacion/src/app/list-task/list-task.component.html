@@ -1,0 +1,17 @@
+<h1> {{title}}</h1>
+
+<a  class="btn btn-primary" [routerLink]="['/nueva-tarea']">Añadir tareas</a>
+<div class="pt-4">
+<ul class="tasks">
+
+<li *ngFor='let task of tasks; let i= index'>
+    <a [routerLink]="['/tarea', task._id]">
+        <span class="badge">{{i+1}}</span>{{task.description}}
+    </a>
+    <button class="button-del delete" (click)="deleteTask(task._id)">
+        X
+    </button>
+
+</li>
+</ul>
+</div>

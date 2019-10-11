@@ -1,0 +1,32 @@
+
+
+
+<h2>{{tittle}}</h2>
+
+<div *ngIf="!status" class="alert alert-danger">{{mensajeMostrar}}</div>
+<form #addTaskForm="ngForm" (ngSubmit)="onSubmit()"class="col-lg-5">
+          
+
+        <div class="form-group">
+            <label for="description">Descripción</label>
+            <input type="text" class="form-control" name="description" [(ngModel)]="task.description" #description="ngModel"  required />
+            <div *ngIf="description.touched && !description.valid" class="alert alert-danger">El campo descripcion debe ser valido</div>
+            
+    
+        </div>
+
+        <div class="form-group form-check">
+            
+            <input type="checkbox" class="form-check-input" name="realized" [(ngModel)]="task.realized" #realized="ngModel"   />
+            <label for="realized" class="form-check-label">Realizada</label>
+            
+        </div>
+
+        
+ 
+ 
+   
+    
+    <button type="submit" class="btn btn-success" [disabled]="!addTaskForm.valid">Crear tarea</button>
+      
+</form>

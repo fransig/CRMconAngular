@@ -1,0 +1,45 @@
+<h1>Register</h1>
+
+<span *ngIf="!status" class="alert alert-danger">{{mensajeMostrar}}</span>
+
+      <form #templateForm="ngForm" (ngSubmit)="onSubmit()"class="col-lg-5">
+          
+
+          <div class="form-group">
+              <label for="name">Nombre</label>
+              <input type="text" class="form-control" name="name" [(ngModel)]="personal.name" #name="ngModel"  required />
+              <div *ngIf="name.touched && !name.valid" class="alert alert-danger">El nombre debe ser valido</div>
+              
+      
+          </div>
+
+          <div class="form-group">
+              <label for="lastname">Apellidos</label>
+              <input type="text" class="form-control" name="lastname" [(ngModel)]="personal.lastname" #lastname="ngModel"  required />
+              <div *ngIf="lastname.touched && !lastname.valid" class="alert alert-danger">El apellido debe ser valido</div>
+              
+          </div>
+
+          <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" name="email" [(ngModel)]="personal.email" #email="ngModel"  required />
+              <div *ngIf="email.touched && !email.valid" class="alert alert-danger">El email debe ser valido</div>
+              
+          </div>
+   
+    <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="personal.password"   required minlength="6"/>
+            <div *ngIf="password.touched && !password.valid">
+                    <div *ngIf="password.errors.required" class="alert alert-danger">El campo password es requerido</div>
+                    <div *ngIf="password.errors.minlength" class="alert alert-danger">Minimo 6 caracteres</div>
+
+            </div>
+            
+      </div>
+     
+      
+      <button type="submit" class="btn btn-success" [disabled]="!templateForm.valid">Registrar</button>
+        
+</form>
+

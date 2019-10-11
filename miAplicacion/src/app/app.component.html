@@ -1,0 +1,49 @@
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a [routerLink]="['/home']" class="navbar-brand">{{title}}</a>
+      <button class="navbar-toggler" type="button" data-toggle= "collapse" data-target="#navbarNav"
+             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+
+<div class="collapse navbar-collapse" id="#navbarNav">
+ <ul class="nav navbar-nav navbar-left col-10">
+      <li class="nav-item" [routerLinkActive]="['active']"*ngIf="currentUser">
+        <a [routerLink]="['/home']"  class="nav-link">Home</a>
+
+
+    </li>
+    <li class="nav-item" [routerLinkActive]="['active']"*ngIf="currentUser">
+      <a [routerLink]="['/mis-datos']"  class="nav-link">MisDatos</a>
+    </li>
+    <li class="nav-item" [routerLinkActive]="['active']" *ngIf="currentUser">
+        <a [routerLink]="['/listado-tareas']"  class="nav-link">Tareas</a>
+      </li>
+ </ul>
+ <ul class="nav navbar-nav navbar-rigth">
+    <li class="nav-item" [routerLinkActive]="['active']" *ngIf="!currentUser">
+      <a [routerLink]="['/login']"  class="nav-link">Login</a>
+    </li>
+    <li class="nav-item" [routerLinkActive]="['active']"*ngIf="!currentUser">
+      <a [routerLink]="['/register']"  class="nav-link">Register</a>
+    </li>
+    
+    <li class="nav-item" *ngIf="currentUser">
+        <a (click)="logout()"  class="nav-link"><span>{{currentUser.name}}</span> Cerrar sesión</a>
+      </li>
+</ul>
+
+</div>
+</nav>
+
+  
+  <main>
+  
+
+
+<router-outlet></router-outlet>
+
+
+</main>
